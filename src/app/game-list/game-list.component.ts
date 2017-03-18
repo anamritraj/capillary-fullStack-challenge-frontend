@@ -70,7 +70,10 @@ export class GameListComponent implements OnInit {
       }
     }
   }
-
+  clearSearch(){
+    this.search_term = "";
+    this.performSearch();
+  }
   createRange(){
     this.total_pages = Math.ceil(this.search_games.length/this.per_page);
     let items: number[] = [];

@@ -17,3 +17,18 @@
 .pagination{
   margin: 1rem auto;
 }
+
+.form-group i{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 30px;
+  cursor: pointer;
+}
+
+.form-group i:hover{
+  color: #ddd;
+}
+.form-group i:active{
+  color: #aaa;
+}
