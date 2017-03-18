@@ -3,24 +3,23 @@
   <input type="text" class="form-control"  placeholder="Search.." (keyup)="performSearch()"  [(ngModel)] = "search_term">
 </div>
 
-
 <nav aria-label="Page Navigation">
   <ul class="pagination justify-content-center">
-    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-    <li *ngFor="let page of createRange(); let idx = index" class="page-item"><a class="page-link" href="#">{{idx + 1}}</a></li>
-    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    <li class="page-item {{(current_page == 1)? 'disabled':''}}"><a class="page-link " (click)="showPageResults(current_page - 1)"><i class="fa fa-chevron-left"></i></a></li>
+    <li *ngFor="let page of createRange(); let idx = index" class="page-item {{(current_page == idx +1)?'active':''}}"><a class="page-link" (click)="showPageResults(idx+1)">{{idx + 1}}</a></li>
+    <li class="page-item {{current_page == total_pages? 'disabled':'' }}" ><a class="page-link" (click)="showPageResults(current_page + 1)"><i class="fa fa-chevron-right"></i></a></li>
   </ul>
 </nav>
 
 <div class="row">
-  <app-game *ngFor="let game of search_games" class="col-md-3" [game]="game">{{game.title}}</app-game>
+  <app-game *ngFor="let game of onpage_games" class="col-md-3" [game]="game">{{game.title}}</app-game>
   <h3 class="m-auto text-gray-dark">{{search_games.length  == 0? "No Results Found!":""}}</h3>
 </div>
 
 <nav aria-label="Page Navigation">
   <ul class="pagination justify-content-center">
-    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-    <li *ngFor="let page of createRange(); let idx = index" class="page-item"><a class="page-link" href="#">{{idx + 1}}</a></li>
-    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    <li class="page-item {{(current_page == 1)? 'disabled':''}}"><a class="page-link " (click)="showPageResults(current_page - 1)"><i class="fa fa-chevron-left"></i></a></li>
+    <li *ngFor="let page of createRange(); let idx = index" class="page-item {{(current_page == idx +1)?'active':''}}"><a class="page-link" (click)="showPageResults(idx+1)">{{idx + 1}}</a></li>
+    <li class="page-item {{current_page == total_pages? 'disabled':'' }}" ><a class="page-link" (click)="showPageResults(current_page + 1)"><i class="fa fa-chevron-right"></i></a></li>
   </ul>
 </nav>
