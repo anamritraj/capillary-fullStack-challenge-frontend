@@ -1,0 +1,50 @@
+<div class="alert alert-success mt-2" *ngIf="registered || loggedIn" role="alert">
+  <strong>Well done!</strong> {{message}}
+</div>
+<div class="alert alert-warning mt-2"  *ngIf="errors.length > 0"  role="alert">
+  <p *ngFor="let error of errors"><strong>Error!</strong></p>
+</div>
+<div class="col-md-6 offset-sm-3" *ngIf="showRegisterForm">
+  <h3 class="text-center mt-2">Register</h3>
+  <br>
+  <form class="registration-form form-horizontal">
+    <div class="form-group">
+      <input type="text" autocomplete="disable" class="form-control" name="user.name" [(ngModel)] = "user.name" placeholder="Enter your name">
+      <!--<div class="form-control-feedback ">{{registerErrors.house_name}} {{ registerErrors.ec_id }}</div>-->
+    </div>
+    <div class="form-group">
+      <input type="email" autocomplete="disable" class="form-control" name="user.email" [(ngModel)] = "user.email" placeholder="Enter your email">
+      <!--<div class="form-control-feedback ">{{registerErrors.house_name}} {{ registerErrors.ec_id }}</div>-->
+    </div>
+    <div class="form-group">
+      <input type="password" autocomplete="disable" class="form-control" name="user.password" [(ngModel)] = "user.password" placeholder="Enter a strong password">
+      <!--<div class="form-control-feedback ">{{registerErrors.house_name}} {{ registerErrors.ec_id }}</div>-->
+    </div>
+
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary" (click)=registerClick()>Submit</button><br><br>
+    </div>
+    <p class="text-center">Already a member? <a (click)="toggleLoginRegister()">Login</a></p>
+  </form>
+</div>
+
+
+<div class="col-md-6 offset-sm-3" *ngIf="showLoginForm">
+  <h3 class="text-center mt-2">Login</h3>
+  <br>
+  <form class="registration-form form-horizontal">
+    <div class="form-group">
+      <input type="email" autocomplete="disable" class="form-control" name="user.email" [(ngModel)] = "user.email" placeholder="Enter your email">
+      <!--<div class="form-control-feedback ">{{registerErrors.house_name}} {{ registerErrors.ec_id }}</div>-->
+    </div>
+    <div class="form-group">
+      <input type="password" autocomplete="disable" class="form-control" name="user.password" [(ngModel)] = "user.password" placeholder="Enter a strong password">
+      <!--<div class="form-control-feedback ">{{registerErrors.house_name}} {{ registerErrors.ec_id }}</div>-->
+    </div>
+
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary" (click)=loginClick()>Submit</button><br><br>
+    </div>
+    <p class="text-center">Not a member? <a (click)="toggleLoginRegister()">Register</a></p>
+  </form>
+</div>

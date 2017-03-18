@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {GameService} from "../services/game.service";
-import {ActivatedRoute} from "@angular/router";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-game-list',
@@ -20,22 +20,34 @@ export class GameListComponent implements OnInit {
 
   constructor(
     private _gameService: GameService,
+    private _router: Router
+
   ) {
     this.search_term = "";
     this.current_page = 1;
   }
 
   ngOnInit() {
+    //Check for the valid token
+    let storedToken:string = localStorage.getItem('user_token');
+    //TODO: Validate token!
+    //*************************************************************************************
+    // If the token is valid! Due to time constraits not able to implement token validation.
+    //*************************************************************************************
+    if(storedToken){
+      this._gameService.getGames().subscribe(result =>{
+          this.games = result;
+          this.search_games = result;
+          this.total_pages = Math.ceil(this.search_games.length/this.per_page);
+          this.showPageResults(this.current_page);
+        },
+        error =>{
+          console.log(error);
+        });
+    }else{
+      this._router.navigate(['login']);
+    }
 
-    this._gameService.getGames().subscribe(result =>{
-      this.games = result;
-      this.search_games = result;
-      this.total_pages = Math.ceil(this.search_games.length/this.per_page);
-      this.showPageResults(this.current_page);
-    },
-    error =>{
-      console.log(error);
-    });
   }
 
   performSearch(){

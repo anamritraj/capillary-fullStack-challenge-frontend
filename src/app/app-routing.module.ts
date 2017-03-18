@@ -2,6 +2,7 @@ import { NgModule }              from '@angular/core';
 import { RouterModule, Routes }  from '@angular/router';
 
 import { GameListComponent } from './game-list/game-list.component';
+import {LoginComponent} from "./login/login.component";
 
 const appRoutes: Routes = [
   {
@@ -9,8 +10,12 @@ const appRoutes: Routes = [
     component: GameListComponent
   },
   {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
     path: '',
-    redirectTo: '/games-list',
+    redirectTo: '/login',
     pathMatch: 'full'
   },
 ];
