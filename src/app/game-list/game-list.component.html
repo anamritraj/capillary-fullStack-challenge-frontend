@@ -4,4 +4,5 @@
 </div>
   <div class="row">
     <app-game *ngFor="let game of search_games" class="col-md-3" [game]="game">{{game.title}}</app-game>
+    <h3 class="m-auto text-gray-dark">{{search_games.length  == 0? "No Results Found!":""}}</h3>
   </div>
