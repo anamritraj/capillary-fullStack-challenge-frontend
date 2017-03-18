@@ -1,16 +1,16 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
 
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.css']
 })
-export class GameComponent implements OnInit {
+export class GameComponent implements OnChanges {
 
   constructor() { }
   @Input() game: Game;
 
-  ngOnInit() {
+  ngOnChanges(changes: SimpleChanges) {
   }
 }
 
