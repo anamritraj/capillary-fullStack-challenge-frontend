@@ -18,7 +18,7 @@ export interface Game{
   title:string;
   score: string;
   genre: string;
-  editors_choic: string;
+  editors_choice: string;
   platform: string;
 
 }

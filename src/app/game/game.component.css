@@ -1,5 +1,5 @@
 .card{
-  min-height: 325px;
+  min-height: 350px;
   margin-bottom: 20px;
   cursor: default;
 }
@@ -15,4 +15,10 @@
 }
 .card-block p{
   margin-bottom: 0.5em;
+}
+.editors-choice{
+  color: #2494d6;
+}
+.editors-choice span{
+  color: ##737171;
 }

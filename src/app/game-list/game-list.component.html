@@ -1,6 +1,7 @@
 <!--<h1 class="text-center">Welcome to Games Arena!</h1>-->
 <div class="form-group col-md-8 m-auto mt-2">
-  <input type="text" class="form-control"  placeholder="Search.." (keyup)="performSearch()"  [(ngModel)] = "search_term">
+  <input type="text" class="form-control"  placeholder="Search (by name)" (keyup)="performSearch()"  [(ngModel)] = "search_term">
+  <i class="fa fa-crosshairs"></i>
 </div>
 
 <nav aria-label="Page Navigation" class="pagination" *ngIf="(search_games.length > 0)">

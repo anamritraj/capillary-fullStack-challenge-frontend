@@ -5,5 +5,8 @@
     <p>Genre: {{game.genre}}</p>
     <p>Score: {{game.score}}</p>
     <p>Platform: {{game.platform}}</p>
+    <div *ngIf="(game.editors_choice == 'Y')" class="editors-choice">
+      <i class="fa fa-gamepad"></i> <span>Editor's Choice</span>
+    </div>
   </div>
 </div>
