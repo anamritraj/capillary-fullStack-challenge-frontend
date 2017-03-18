@@ -1,9 +1,9 @@
-<h1 class="text-center">Welcome to Games Arena!</h1>
-<div class="form-group">
+<!--<h1 class="text-center">Welcome to Games Arena!</h1>-->
+<div class="form-group col-md-8 m-auto mt-2">
   <input type="text" class="form-control"  placeholder="Search.." (keyup)="performSearch()"  [(ngModel)] = "search_term">
 </div>
 
-<nav aria-label="Page Navigation" *ngIf="(search_games.length > 0)">
+<nav aria-label="Page Navigation" class="pagination" *ngIf="(search_games.length > 0)">
   <ul class="pagination justify-content-center">
     <li class="page-item {{(current_page == 1)? 'disabled':''}}"><a class="page-link " (click)="showPageResults(current_page - 1)"><i class="fa fa-chevron-left"></i></a></li>
     <li *ngFor="let page of createRange(); let idx = index" class="page-item {{(current_page == idx +1)?'active':''}}"><a class="page-link" (click)="showPageResults(idx+1)">{{idx + 1}}</a></li>
@@ -13,7 +13,7 @@
 
 <div class="row">
   <app-game *ngFor="let game of onpage_games" class="col-md-3" [game]="game">{{game.title}}</app-game>
-  <h3 class="m-auto text-gray-dark">{{search_games.length  == 0? "No Results Found!":""}}</h3>
+  <h3 class="m-auto text-gray-dark no-results">{{search_games.length  == 0? "No Results Found!":""}}</h3>
 </div>
 
 <nav aria-label="Page Navigation" *ngIf="(search_games.length > 0)">

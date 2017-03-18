@@ -57,7 +57,7 @@ export class GameListComponent implements OnInit {
   }
 
   showPageResults(page_no){
-    console.log(page_no);
+    // console.log(page_no);
     if(page_no <= this.total_pages && page_no >= 1){
       this.onpage_games = [];
       this.current_page = page_no;
