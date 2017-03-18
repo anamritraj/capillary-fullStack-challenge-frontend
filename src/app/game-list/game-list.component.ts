@@ -53,6 +53,7 @@ export class GameListComponent implements OnInit {
     if(this.search_term == ""){
       this.search_games = this.games;
     }
+    this.showPageResults(this.current_page);
   }
 
   showPageResults(page_no){
