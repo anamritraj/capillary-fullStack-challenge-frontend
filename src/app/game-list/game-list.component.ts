@@ -13,6 +13,7 @@ export class GameListComponent implements OnInit {
   games = [];
   search_games = [];
   search_term: string;
+  private per_page = 12;
 
   constructor(
     private _gameService: GameService
@@ -45,14 +46,15 @@ export class GameListComponent implements OnInit {
       this.search_games = this.games;
     }
   }
+
+  createRange(){
+    let pages = Math.ceil(this.search_games.length/this.per_page);
+    let items: number[] = [];
+    for(let i = 1; i <= pages; i++){
+      items.push(i);
+    }
+    return items;
+  }
 }
 
-export interface Game{
-  title:string;
-  score: string;
-  genre: string;
-  editors_choic: string;
-  platform: string;
-
-}
 
