@@ -9,13 +9,17 @@ import {GameService} from "../services/game.service";
 })
 export class GameListComponent implements OnInit {
 
+  games = [];
+  search_term: string;
   constructor(
     private _gameService: GameService
-  ) { }
+  ) {
+    this.search_term = "";
+  }
 
   ngOnInit() {
     this._gameService.getGames().subscribe(result =>{
-      console.log(result);
+      this.games = result;
     },
     error =>{
       console.log(error);

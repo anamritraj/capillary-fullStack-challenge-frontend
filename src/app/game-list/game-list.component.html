@@ -1,0 +1,7 @@
+<h1 class="text-center">Welcome to Games Arena!</h1>
+<div class="form-group">
+  <input type="text" class="form-control"  placeholder="Search.." [(ngModel)] = "search_term">
+</div>
+  <div class="row">
+    <app-game *ngFor="let game of games" class="col-md-3" [game]="game">{{game.title}}</app-game>
+  </div>

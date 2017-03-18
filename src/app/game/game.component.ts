@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 
 @Component({
   selector: 'app-game',
@@ -8,8 +8,17 @@ import { Component, OnInit } from '@angular/core';
 export class GameComponent implements OnInit {
 
   constructor() { }
+  @Input() game: Game;
 
   ngOnInit() {
   }
+}
+
+export interface Game{
+  title:string;
+  score: string;
+  genre: string;
+  editors_choic: string;
+  platform: string;
 
 }

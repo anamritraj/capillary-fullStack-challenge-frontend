@@ -1,0 +1,13 @@
+.card{
+  min-height: 325px;
+  margin-bottom: 20px;
+}
+.card-title{
+  font-size: 1em;
+}
+.card-img-top{
+  width: 100%;
+}
+.card-block p{
+  margin-bottom: 0.5em;
+}
