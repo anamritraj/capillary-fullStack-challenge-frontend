@@ -1,0 +1,10 @@
+.navbar-brand img{
+  max-width:200px;
+}
+.navbar-brand p{
+  color: #90c52b;
+  display: inline-block;
+  font-size: 1.2em;
+  padding-left: 20px;
+}
+
